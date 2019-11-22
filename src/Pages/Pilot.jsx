@@ -1,52 +1,104 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '../Components/Carousel';
+import { makeStyles } from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { PILOTS_URL } from '../constants';
 
+const useStyles = makeStyles({
+    home: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    prompt: {
+        color: 'white',
+    },
+    button: {
+        width: '90vw',
+        height: '10vh',
+        backgroundColor: '#2E88D1',
+    }
+
+})
+
 const Pilot = (props) => {
+    const classes = useStyles()
     const pilots = [
         {
-            name: 'Episode 1: The Phantom Menace',
-            image: '/episodes/episode1.jpg'
+            name: 'Arvel Crynyd',
+            image: '/pilots/Arvel-crynyd.jpg'
         },
         {
-            name: 'Episode 2: Attack of the Clones',
-            image: '/episodes/episode2.jpg'
+            name: 'Biggs Darklighter',
+            image: '/pilots/Biggs_Darklighter.jpg'
         },
         {
-            name: 'Episode 3: Revenge of the Sith',
-            image: '/episodes/episode3.jpg'
+            name: 'Boba Fett',
+            image: '/pilots/boba-fett.jpeg'
         },
         {
-            name: 'Episode 4: A New Hope',
-            image: '/episodes/episode4.jpg'
+            name: 'Chewbacca',
+            image: '/pilots/chewbacca.jpg'
         },
         {
-            name: 'Episode 5: The Empire Strikes Back',
-            image: '/episodes/episode5.jpg'
+            name: 'Darth Maul',
+            image: '/pilots/Darth_Maul.jpg'
         },
         {
-            name: 'Episode 6: Return of the Jedi',
-            image: '/episodes/episode6.jpg'
+            name: 'Darth Vader',
+            image: '/pilots/darth-vader.jpg'
         },
         {
-            name: 'Episode 7: The Force Awakens',
-            image: '/episodes/episode7.jpg'
+            name: 'General Grievous',
+            image: '/pilots/grievous.jpg'
         },
         {
-            name: 'Episode 8: The Last Jedi',
-            image: '/episodes/episode8.jpg'
+            name: 'Young Han Solo',
+            image: '/pilots/Han-solo-young.jpg'
         },
         {
-            name: 'Episode 9: The Rise of Skywalker',
-            image: '/episodes/episode9.jpg'
-        }
+            name: 'Old Han Solo',
+            image: '/pilots/Han-solo-old.png'
+        },
+        {
+            name: 'Leia',
+            image: '/pilots/Leia.jpeg'
+        },
+        {
+            name: 'Young Luke Skywalker',
+            image: '/pilots/luke-skywalker-young.jpg'
+        },
+        {
+            name: 'Obi Wan ',
+            image: '/pilots/obi-wan.jpg'
+        },
+        {
+            name: 'Padme Amidala',
+            image: '/pilots/padme-amidala.png'
+        },
+        {
+            name: 'Poe Dameron',
+            image: '/pilots/poe-dameron.jpg'
+        },
+        {
+            name: 'Rey',
+            image: '/pilots/Rey.jpeg'
+        },
+
     ]
     return (
-        <Carousel items={pilots}
-            updateData={props.updateData}
-            updateImage={props.updateImage}
-        />
+        <>
+        <h3 className={classes.prompt}>Choose Your Pilot</h3>
+            <Carousel items={pilots}
+                updateData={props.updateData}
+                updateImage={props.updateImage}
+            /><br />
+            <a href="/starship">
+                <Button className={classes.button}>Choose your Pilot!</Button>
+            </a>
+        </>
     )
 }
 
